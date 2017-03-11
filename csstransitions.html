@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>css transitions</title>
+    <style>
+        input[type=text] {
+            width: 100px;
+            height: 30px;
+            transition: width 2s ease, height 2s linear;
+        }
+        
+        input[type=text]:focus {
+            width: 200px;
+            height: : 100px;
+        }
+        
+        div {
+            background-color: aquamarine;
+            width: 400px;
+            height: 100px;
+            transition: width 2s, height 2s;
+            border: 1px solid black;
+            color: red;
+        }
+        
+        div:hover {
+            width: 500px;
+            height: 150px;
+        }
+        
+        div1 {
+            width: 100px;
+            height: 50px;
+            transition: width 2s, height 2s, transform 2s;
+        }
+        
+        div1:hover {
+            width: 120px;
+            height: 70px;
+            transform: rotate(180deg);
+        }
+        
+        #d1 {
+            transition-timing-function: ease;
+        }
+        
+        #d2 {
+            transition-timing-function: linear;
+        }
+        
+        #d3 {
+            transition-timing-function: ease-in
+        }
+        
+        #d4 {
+            transition-timing-function: ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    search:
+    <input type="text" />
+    <div>default:ease</div>
+    <div id="d1">transition-timing-function:ease</div>
+    <div id="d2">transition-timing-function:linear</div>
+    <div id="d3">transition-timing-function:easetransition-timing-function:ease-in</div>
+    <div id="d4">transition-timing-function:ease-out</div>
+    <div1></div1>
+</body>
+
+</html>

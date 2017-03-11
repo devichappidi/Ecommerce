@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app = "productdetails">
+<head>
+    <title>displaying the product details</title>
+    <style>
+    .btncss{
+    background-color: coral;
+        color:white;
+        height:50px;
+        width:10%;
+        font-size: 20px;
+        font-family: serif;
+    
+    </style>
+    <script src = "angular-route.min.js"></script>
+    <script src = "../angular.min.js"></script>
+    <script src = "productDetails.js"></script>
+    </head>
+<body style = "background-color:aquamarine">
+    <div ui-view></div>
+    <h2 align = "center">The details of the product</h2>
+    <br><br>
+    <div></div>
+    <div ng-repeat="item in products">
+        <p>{{item.id}}</p>
+    <button ng-click = "add()" class = "btncss" style = "margin-left:35%">add to cart</button>
+    <button ng-click = "buy()" class = "btncss" style = "background-color:blue;margin-left:2%" >Buy</button>
+     <footer align ="left" style = "padding-top:200px"><button ng-click = "back()" class = "btncss" style = "background-color:black;color:white">Back</button> </footer>   
+
+    </div>
+    </body>
+</html>
+<!-- $scope.details = function (id) {
+        $state.go('lab-details', {id: id});-->

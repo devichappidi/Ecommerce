@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="product in proinfo|limitTo:3">
+        <div class="thumbnail">
+
+            <h1><a ng-click="proDetails(product)">{{product.model|uppercase}}</a></h1>
+            <p>{{product.make}}</p>
+            <p><i class="fa fa-inr"></i>{{product.price|currency:""}}</p>
+
+
+        </div>
+    </div>
+</div>
