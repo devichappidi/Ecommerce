@@ -1,5 +1,29 @@
-<ul ng-controller="productsController">
-  <li ng-repeat="product in products1">
-    <a ui-sref="productDetails{{id}}"> {{product.model}}</a>
-  </li>
-</ul>
+<div ng-controller="productsController">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <h1>Products:</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4" ng-repeat="product in products1|pagination: curPage * pageSize|limitTo: pageSize">
+                <div class="thumbnail">
+
+                    <h1><a ng-click="proDetails(product)">{{product.model|uppercase}}</a></h1>
+                    <p>{{product.make}}</p>
+                    <p><i class="fa fa-inr"></i>{{product.price|currency:""}}</p>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="pagination pagination-centered">
+            <div class="pagination-controle pagination">
+                <button type="button " class="btn btn-primary " ng-disabled="curPage==0 " ng-click="curPage=curPage-1 "> PREV</button>
+
+                <span>Page {{curPage + 1}} of {{ noOfPages() }}</span>
+
+                <button type="button " class="btn btn-primary " ng-disabled="curPage == noOfPages()-1" ng-click="curPage = curPage+1">NEXT </button>
+            </div>
+        </div>
+    </div>
+</div>
