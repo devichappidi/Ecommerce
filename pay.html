@@ -13,8 +13,9 @@
         <tr ng-repeat="obj in payy">
             <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black">{{obj.name}}</td>
             <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.cost|number}}</td>
-            <span style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black;">
+            <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black;">
                 <button style="border-radius:5px;width:50%;background-color:powderblue;" ng-click="remove(obj.name,obj.cost)">Remove</button>
+            </td>
         </tr>
         <tr>
             <td style="color:darkviolet;font-size:18px;font-weight:bold" align="right">Total:</td>
@@ -53,46 +54,46 @@
     <br>
     <form ng-show="card" style="width:40%;margin-top:1%;float:left;margin-left:160px;" name="cardform" novalidate>
         <input type="text" placeholder="Card number" ng-minlength="15" ng-maxlength="18" style="width:45%;height:3em;border-radius:5px;padding-left:1%" name="validation" ng-model="validation" ng-pattern="/^[0-9]*$/" required><span ng-show="cardform.validation.$error.pattern ||cardform.validation.$error.minlength||cardform.validation.$error.maxlength" style="color:red;"><sup>*</sup>Enter valid card number</span>
-            <br>
-            <br>
-            <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" name="monval" ng-model="monval" required>Expiry date
+        <br>
+        <br>
+        <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" name="monval" ng-model="monval" required>Expiry date
 
-            <br>
-            <br>
-            <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" name="nameval" ng-model="nameval" ng-pattern="/^[a-zA-Z]+$/" required><span ng-show="cardform.nameval.$error.pattern" style="color:red"><sup>*</sup>Enter  a valid name</span>
-            <br>
-            <br>
-            <button type="submit" ng-disabled="cardform.$invalid" class="buttons" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="confirm()">Proceed</button>
-            <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;">Reset</button>
-            <br>
-            <br>
-            </form>
-            <form ng-show="debcard" style="margin-top:1%;width:40%;float:left;margin-left:160px;">
-                <input type="number" placeholder="Card number" ng-minlength="15" ng-maxlength="18" style="width:45%;height:3em;border-radius:5px;padding-left:1%" ng-model="debitcard" ng-pattern="/^[0-9]*$/" required><span ng-show="cardform.validation.$error.pattern ||cardform.validation.$error.minlength||cardform.validation.$error.maxlength" style="color:red;"><sup>*</sup>Enter valid card number</span>
-                <br>
-                <br>
-                <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" ng-model="monthval" required>Expiry date
+        <br>
+        <br>
+        <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" name="nameval" ng-model="nameval" ng-pattern="/^[a-zA-Z]+$/" required><span ng-show="cardform.nameval.$error.pattern" style="color:red"><sup>*</sup>Enter  a valid name</span>
+        <br>
+        <br>
+        <button type="submit" ng-disabled="cardform.$invalid" class="buttons" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="confirm()">Proceed</button>
+        <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;">Reset</button>
+        <br>
+        <br>
+    </form>
+    <form ng-show="debcard" style="margin-top:1%;width:40%;float:left;margin-left:160px;">
+        <input type="number" placeholder="Card number" ng-minlength="15" ng-maxlength="18" style="width:45%;height:3em;border-radius:5px;padding-left:1%" ng-model="debitcard" ng-pattern="/^[0-9]*$/" required><span ng-show="cardform.validation.$error.pattern ||cardform.validation.$error.minlength||cardform.validation.$error.maxlength" style="color:red;"><sup>*</sup>Enter valid card number</span>
+        <br>
+        <br>
+        <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" ng-model="monthval" required>Expiry date
 
-                <br>
-                <br>
-                <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" ng-model="namecardval" ng-pttern="/^[a-zA-Z*$/" required>
-                <br>
-                <br>
-                <button type="submit" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="confirmfn()">Proceed</button>
-                <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black;">Reset</button>
-                <br>
-                <br>
-            </form>
-            <form ng-show="cash" name="cashform" style="float:left;width:40%;margin-left:160px;">
-                <input type="text" placeholder="XY34Z" disabled class="buttons" style="width:50%;height:3em;border-radius:5px">
-                <br>
-                <br>
-                <input type="text" ng-model="captchaval" placeholder="Enter captcha" class="buttons" style="width:50%;height:3em;border-radius:5px;padding-left:1%"><span style="color:red;font-size:16px"><sup>*</sup>{{err}}</span>
-                <br>
-                <br>
-                <button type="reset" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:black">Reset</button>
-                <button type="submit" class="buttons" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="show()">Proceed</button>
-                <br>
-                <br>
-            </form>
+        <br>
+        <br>
+        <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" ng-model="namecardval" ng-pttern="/^[a-zA-Z*$/" required>
+        <br>
+        <br>
+        <button type="submit" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="confirmfn()">Proceed</button>
+        <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black;">Reset</button>
+        <br>
+        <br>
+    </form>
+    <form ng-show="cash" name="cashform" style="float:left;width:40%;margin-left:160px;">
+        <input type="text" placeholder="XY34Z" disabled class="buttons" style="width:50%;height:3em;border-radius:5px">
+        <br>
+        <br>
+        <input type="text" ng-model="captchaval" placeholder="Enter captcha" class="buttons" style="width:50%;height:3em;border-radius:5px;padding-left:1%"><span style="color:red;font-size:16px"><sup>*</sup>{{err}}</span>
+        <br>
+        <br>
+        <button type="reset" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:black">Reset</button>
+        <button type="submit" class="buttons" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="show()">Proceed</button>
+        <br>
+        <br>
+    </form>
 </fieldset>
