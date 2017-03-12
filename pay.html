@@ -1,45 +1,45 @@
-<fieldset style="background-image:url('bg2.jpg')">
+<fieldset>
     <header>
-        <h2 align="center" style="color:blue"><b>Order Summary</b></h2>
+        <h2 align="center" style="color:blue;background-color:grey"><b>Order Summary</b></h2>
     </header>
     <hr>
-    <table align="center" style="border:1px solid white;border-collapse:collapse;width:60%;">
+    <table align="center" style="border:1px solid black;border-collapse:collapse;width:60%;">
         <tr>
-            <th style="border:1px solid white;border-collapse:collapse;padding-left:1%;color:red;font-weight:bold;font-size:20px">Item</th>
-            <th style="border:1px solid white;border-collapse:collapse;padding-left:1%;color:red;font-size:20px">Price</th>
+            <th style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:red;font-weight:bold;font-size:20px">Item</th>
+            <th style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:red;font-size:20px">Price</th>
             <th></th>
 
         </tr>
         <tr ng-repeat="obj in payy">
-            <td style="border:1px solid white;border-collapse:collapse;padding-left:1%;color:white">{{obj.name}}</td>
-            <td style="border:1px solid white;border-collapse:collapse;padding-left:1%;color:white" ng-model="rem"> {{obj.cost|number}}</td>
-            <td style="border:1px solid white;border-collapse:collapse;padding-left:1%;color:black;">
-                <button style="border-radius:5px;width:50%;background-color:dodgerblue;" ng-click="remove(obj.name,obj.cost)">Remove</button>
+            <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black">{{obj.name}}</td>
+            <td style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black" ng-model="rem"> {{obj.cost|number}}</td>
+            <span style="border:1px solid black;border-collapse:collapse;padding-left:1%;color:black;">
+                <button style="border-radius:5px;width:50%;background-color:powderblue;" ng-click="remove(obj.name,obj.cost)">Remove</button>
         </tr>
         <tr>
-            <td style="color:yellow;font-size:18px;font-weight:bold" align="right">Total:</td>
-            <td style="color:yellow;font-size:18px;font-weight:bold" align="center">{{totalcost|number}}</td>
+            <td style="color:darkviolet;font-size:18px;font-weight:bold" align="right">Total:</td>
+            <td style="color:darkviolet;font-size:18px;font-weight:bold" align="center">{{totalcost|number}}</td>
             <td></td>
         </tr>
     </table>
 
     <br>
-    <input type="button" ng-value="value" ng-click="continue();click=!click" style="width:12%;height:3em;border-radius:5px;margin-left:1%;background-color:transparent;color:white">
-    <input type="button" value="Home" ng-click="home()" ; style="width:6%;height:3em;border-radius:5px;background-color:transparent;color:white;float:right;margin-right:1%">
-    <input type="button" value="Back to Cart" ng-click="back()" ; style="width:10%;height:3em;border-radius:5px;background-color:transparent;color:white;float:right;margin-right:2%">
+    <input type="button" ng-value="value" ng-click="continue();click=!click" style="width:12%;height:3em;border-radius:5px;margin-left:1%;background-color:skyblue;color:white">
+    <input type="button" value="Home" ng-click="home()" ; style="width:6%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;float:right;margin-right:1%">
+    <input type="button" value="Back to Cart" ng-click="back()" ; style="width:10%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;float:right;margin-right:2%">
     <hr>
 
     <div ng-show="continuepay">
         <h2 align="center" style="color:red;margin-top:1%"><b>Payment Details</b></h2>
         <hr>
         <fieldset style="width:30%;padding-left:1%;float:left;padding-top:2%">
-            <input type="button" value="Credit Card" ng-click="cardfn()" class="buttons" style="width:50%;height:3em;border-radius:25px;background-color:transparent;color:white">
+            <input type="button" value="Credit Card" ng-click="cardfn()" class="buttons" style="width:50%;height:3em;border-radius:25px;background-color:powderblue;color:white">
             <br>
             <br>
-            <input type="button" value="Debit Card" class="buttons" ng-click="debcardfn()" style="width:50%;height:3em;border-radius:25px;background-color:transparent;color:white">
+            <input type="button" value="Debit Card" class="buttons" ng-click="debcardfn()" style="width:50%;height:3em;border-radius:25px;background-color:powderblue;color:white">
             <br>
             <br>
-            <input type="button" value="Cash on Delivery" class="buttons" ng-click="cashon()" style="width:50%;height:3em;border-radius:25px;background-color:transparent;color:white">
+            <input type="button" value="Cash on Delivery" class="buttons" ng-click="cashon()" style="width:50%;height:3em;border-radius:25px;background-color:powderblue;color:white">
             <br>
             <br>
             <br>
@@ -52,47 +52,47 @@
 
     <br>
     <form ng-show="card" style="width:40%;margin-top:1%;float:left;margin-left:160px;" name="cardform" novalidate>
-        <input type="number" placeholder="Card number" ng-maxlength="16" style="width:45%;height:3em;border-radius:5px;padding-left:1%" name="validation" ng-model="validation" required><span ng-show="!cardform.validation.$pristine && cardform.validation.$invalid"></span><span ng-show="cardform.validation.$error.required" style="color:red;"><sup>*</sup>Enter valid card number</span>
-        <br>
-        <br>
-        <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" name="monval" ng-model="monval" required>Expiry date
-        <span ng-show="!cardform.monval.$pristine && cardform.monval.$invalid"></span><span ng-show="cardform.monval.$error.required" style="color:red"><sup>*</sup>Enter expiry details</span>
-        <br>
-        <br>
-        <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" name="nameval" ng-model="nameval" required><span ng-show="!cardform.nameval.$pristine && cardform.nameval.$invalid"></span><span ng-show="cardform.monval.$error.required" style="color:red"><sup>*</sup>Enter  a valid name</span>
-        <br>
-        <br>
-        <button type="submit" ng-disabled="cardform.$invalid" class="buttons" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white" ng-click="confirm()">Proceed</button>
-        <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;">Reset</button>
-        <br>
-        <br>
-    </form>
-    <form ng-show="debcard" style="margin-top:1%;width:40%;float:left;margin-left:160px;">
-        <input type="number" placeholder="Card number" ng-maxlength="16" style="width:45%;height:3em;border-radius:5px;padding-left:1%" ng-model="debitcard" required>
-        <br>
-        <br>
-        <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" ng-model="monthval" required>Expiry date
+        <input type="text" placeholder="Card number" ng-minlength="15" ng-maxlength="18" style="width:45%;height:3em;border-radius:5px;padding-left:1%" name="validation" ng-model="validation" ng-pattern="/^[0-9]*$/" required><span ng-show="cardform.validation.$error.pattern ||cardform.validation.$error.minlength||cardform.validation.$error.maxlength" style="color:red;"><sup>*</sup>Enter valid card number</span>
+            <br>
+            <br>
+            <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" name="monval" ng-model="monval" required>Expiry date
 
-        <br>
-        <br>
-        <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" ng-model="namecardval" required>
-        <br>
-        <br>
-        <button type="submit" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white" ng-click="confirmfn()">Proceed</button>
-        <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;">Reset</button>
-        <br>
-        <br>
-    </form>
-    <form ng-show="cash" name="cashform" style="float:left;width:40%;margin-left:160px;">
-        <input type="text" placeholder="XY34Z" disabled class="buttons" style="width:50%;height:3em;border-radius:5px">
-        <br>
-        <br>
-        <input type="text" ng-model="captchaval" placeholder="Enter captcha" class="buttons" style="width:50%;height:3em;border-radius:5px;padding-left:1%"><span style="color:red;font-size:16px"><sup>*</sup>{{err}}</span>
-        <br>
-        <br>
-        <button type="reset" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:white">Reset</button>
-        <button type="submit" class="buttons" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:white" ng-click="show()">Proceed</button>
-        <br>
-        <br>
-    </form>
+            <br>
+            <br>
+            <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" name="nameval" ng-model="nameval" ng-pattern="/^[a-zA-Z]+$/" required><span ng-show="cardform.nameval.$error.pattern" style="color:red"><sup>*</sup>Enter  a valid name</span>
+            <br>
+            <br>
+            <button type="submit" ng-disabled="cardform.$invalid" class="buttons" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="confirm()">Proceed</button>
+            <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:white;">Reset</button>
+            <br>
+            <br>
+            </form>
+            <form ng-show="debcard" style="margin-top:1%;width:40%;float:left;margin-left:160px;">
+                <input type="number" placeholder="Card number" ng-minlength="15" ng-maxlength="18" style="width:45%;height:3em;border-radius:5px;padding-left:1%" ng-model="debitcard" ng-pattern="/^[0-9]*$/" required><span ng-show="cardform.validation.$error.pattern ||cardform.validation.$error.minlength||cardform.validation.$error.maxlength" style="color:red;"><sup>*</sup>Enter valid card number</span>
+                <br>
+                <br>
+                <input type="month" class="buttons" style="width:45%;height:3em;border-radius:5px" ng-model="monthval" required>Expiry date
+
+                <br>
+                <br>
+                <input type="text" placeholder="Name on card" class="buttons" style="width:45%;height:3em;border-radius:5px;padding-left:1%;" ng-model="namecardval" ng-pttern="/^[a-zA-Z*$/" required>
+                <br>
+                <br>
+                <button type="submit" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="confirmfn()">Proceed</button>
+                <button type="reset" style="width:25%;height:3em;border-radius:5px;background-color:dodgerblue;color:black;">Reset</button>
+                <br>
+                <br>
+            </form>
+            <form ng-show="cash" name="cashform" style="float:left;width:40%;margin-left:160px;">
+                <input type="text" placeholder="XY34Z" disabled class="buttons" style="width:50%;height:3em;border-radius:5px">
+                <br>
+                <br>
+                <input type="text" ng-model="captchaval" placeholder="Enter captcha" class="buttons" style="width:50%;height:3em;border-radius:5px;padding-left:1%"><span style="color:red;font-size:16px"><sup>*</sup>{{err}}</span>
+                <br>
+                <br>
+                <button type="reset" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:black">Reset</button>
+                <button type="submit" class="buttons" style="width:50%;height:3em;border-radius:5px;background-color:dodgerblue;color:black" ng-click="show()">Proceed</button>
+                <br>
+                <br>
+            </form>
 </fieldset>
